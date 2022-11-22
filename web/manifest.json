@@ -1,6 +1,6 @@
 {
-    "name": "flutter_tdd_clean_architecture_course",
-    "short_name": "flutter_tdd_clean_architecture_course",
+    "name": "github_search",
+    "short_name": "github_search",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

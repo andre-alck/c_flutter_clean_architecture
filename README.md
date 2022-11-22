@@ -1,4 +1,4 @@
-# flutter_tdd_clean_architecture_course
+# github_search
 
 A new Flutter project.
 
