@@ -12,9 +12,11 @@ class CarroEntity {
     return valor * quantidadeDePortas;
   }
 
-  void ajustaPreco() {
+  double ajustaPreco() {
     if (valor > 10000.0) {
       valor *= 2;
     }
+
+    return valor;
   }
 }
