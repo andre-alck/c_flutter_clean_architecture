@@ -1,4 +1,4 @@
-package com.example.github_search
+package com.example.flutter_clean_architecture
 
 import io.flutter.embedding.android.FlutterActivity
 
