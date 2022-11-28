@@ -26,7 +26,7 @@ class ComputerDto extends ComputerEntity {
     };
   }
 
-  ComputerDto fromJson(Map<String, dynamic> map) {
+  static ComputerDto fromJson(Map<String, dynamic> map) {
     return ComputerDto(
         cpu: map['cpu'],
         gpu: map['gpu'],
