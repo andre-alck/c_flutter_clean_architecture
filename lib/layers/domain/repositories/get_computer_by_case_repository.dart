@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
+
 import '../entities/computer_entity.dart';
 
 abstract class GetComputerByCaseRepository {
-  ComputerEntity call(String computerCase);
+  Either<Exception, ComputerEntity> call(String computerCase);
 }

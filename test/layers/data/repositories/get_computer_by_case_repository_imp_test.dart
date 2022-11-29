@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_architecture/layers/data/datasources/local/get_computer_by_case_local_datasource_imp.dart';
 import 'package:flutter_clean_architecture/layers/data/repositories/get_computer_by_case_repository_imp.dart';
 import 'package:flutter_clean_architecture/layers/domain/entities/computer_entity.dart';
@@ -11,7 +12,10 @@ main() {
     GetComputerByCaseRepository getComputerByCaseRepository =
         GetComputerByCaseRepositoryImp(
             getComputerByCaseDataSource: GetComputerByCaseLocalDataSourceImp());
-    ComputerEntity computerEntity = getComputerByCaseRepository('');
+    final Either<Exception, ComputerEntity> result =
+        getComputerByCaseRepository('java');
+    late ComputerEntity computerEntity;
+    result.fold((error) => null, (success) => computerEntity = success);
     expect(computerEntity, isInstanceOf<ComputerEntity>());
   });
 
@@ -21,7 +25,12 @@ main() {
     GetComputerByCaseRepository getComputerByCaseRepository =
         GetComputerByCaseRepositoryImp(
             getComputerByCaseDataSource: GetComputerByCaseLocalDataSourceImp());
-    final ComputerEntity computerEntity = getComputerByCaseRepository('java');
+
+    final Either<Exception, ComputerEntity> result =
+        getComputerByCaseRepository('java');
+    late ComputerEntity computerEntity;
+    result.fold((error) => null, (success) => computerEntity = success);
+
     expect(computerEntity.gpu, 'NVIDIA GeForce GTX 1050 Ti');
   });
 }

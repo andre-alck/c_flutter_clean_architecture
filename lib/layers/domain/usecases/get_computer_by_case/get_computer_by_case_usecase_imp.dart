@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_architecture/layers/domain/repositories/get_computer_by_case_repository.dart';
 
 import '../../entities/computer_entity.dart';
@@ -11,7 +12,7 @@ class GetComputerByCaseUseCaseImp implements GetComputerByCaseUseCase {
       : _getComputerByCaseRepository = getComputerByCaseRepository;
 
   @override
-  ComputerEntity call(String computerCase) {
+  Either<Exception, ComputerEntity> call(String computerCase) {
     return _getComputerByCaseRepository(computerCase);
   }
 }

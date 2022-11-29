@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+
 import '../../dtos/computer_dto.dart';
 import '../get_computer_by_case_datasource.dart';
 
@@ -18,11 +20,14 @@ class GetComputerByCaseLocalDataSourceImp
   };
 
   @override
-  ComputerDto call(String computerCase) {
-    if (computerCase == 'java') {
-      return ComputerDto.fromJson(mapFromApiContainingFirstComputer);
+  Either<Exception, ComputerDto> call(String computerCase) {
+    try {
+      if (computerCase == 'java') {
+        return Right(ComputerDto.fromJson(mapFromApiContainingFirstComputer));
+      }
+      return Right(ComputerDto.fromJson(mapFromApiContainingSecondComputer));
+    } catch (e) {
+      return Left(Exception('Error in GetComputerByCaseLocalDataSourceImp'));
     }
-
-    return ComputerDto.fromJson(mapFromApiContainingSecondComputer);
   }
 }

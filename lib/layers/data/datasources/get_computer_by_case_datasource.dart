@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
+
 import '../dtos/computer_dto.dart';
 
 abstract class GetComputerByCaseDataSource {
-  ComputerDto call(String computerCase);
+  Either<Exception, ComputerDto> call(String computerCase);
 }
